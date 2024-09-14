@@ -4,6 +4,7 @@ import mockCurrency from '../assets/mockCurrency.json';
 import mockGuest from '../assets/mockGuest.json';
 import mockReview from '../assets/mockReview.json';
 import mockTransaction from '../assets/mockTransaction.json';
+import mockBookingAndCheckin from '../assets/mockBookingAndCheckIn.json';
 
 const getBooking = (req: Request, res: Response, next: NextFunction) => {
 	return res.json(mockBooking);
@@ -25,4 +26,12 @@ const getTransaction = (req: Request, res: Response, next: NextFunction) => {
 	return res.json(mockTransaction);
 };
 
-export { getBooking, getCurrency, getGuest, getReview, getTransaction };
+const getSeasonalBooking = (req: Request, res: Response, next: NextFunction) => {
+	return res.json(mockBookingAndCheckin);
+};
+
+const getSeasonalCheckin = (req: Request, res: Response, next: NextFunction) => {
+	return res.json(mockBookingAndCheckin);
+};
+
+export { getBooking, getCurrency, getGuest, getReview, getTransaction, getSeasonalCheckin, getSeasonalBooking};
