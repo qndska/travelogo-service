@@ -7,6 +7,7 @@ import {
 	getTransaction
 } from '../controllers/controllerApi';
 import {
+	getOneYearSeasonalBookingCheckInData,
 	getOneYearSeasonalIncomeData,
 	getThreeYearsSeasonalIncomeData
 } from '../controllers/controllerSeasonal';
@@ -26,6 +27,8 @@ import {
 	getVisitPurposeData,
 	getVisitorTypeData
 } from '../controllers/controllerMockupPie';
+import mockBookingAndCheckin from "../assets/mockBookingAndCheckIn.json";
+
 
 const routerApi = express.Router();
 // mock data
@@ -62,5 +65,6 @@ routerApi.get('/v1/visitorTypeData', getVisitorTypeData);
 routerApi.get('/v1/roomTypesData', getRoomTypesData);
 routerApi.get('/v1/visitPurposeData', getVisitPurposeData);
 routerApi.get('/v1/stayingLengthData', getStayingLengthData);
+routerApi.get('/v1/oneYearSeasonalBookingCheckInData', getOneYearSeasonalBookingCheckInData);
 
 export default routerApi;

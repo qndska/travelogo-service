@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import mockBookingAndCheckin from "../assets/mockBookingAndCheckIn.json";
 const seasonalLabels = [
 	'January',
 	'Febuary',
@@ -62,6 +63,8 @@ const threeYearsSeasonalIncomeData = {
 	]
 };
 
+
+
 const getOneYearSeasonalIncomeData = (req: Request, res: Response) => {
 	return res.json(oneYearSeasonalIncomeData);
 };
@@ -72,4 +75,23 @@ const getThreeYearsSeasonalIncomeData = (req: Request, res: Response) => {
 
 // TODO: add getOneYearSeasonalBookingCheckInData here and export it
 
-export { getOneYearSeasonalIncomeData, getThreeYearsSeasonalIncomeData };
+
+
+const getOneYearSeasonalBookingCheckInData = (req: Request, res: Response) => {
+	const bookingOneYear = Object.values(
+		mockBookingAndCheckin["bookings"][0]["2022"]
+	  );
+	  const checkInOneYear = Object.values(
+		mockBookingAndCheckin["checkin"][0]["2022"]
+	  );
+	const OneYearSeasonalBookingCheckInData = {	
+		data:{
+		  booking: bookingOneYear,
+		  checkin: checkInOneYear
+		},
+		statusCode: 200	
+};
+	return res.json(OneYearSeasonalBookingCheckInData);
+  };
+
+export { getOneYearSeasonalIncomeData, getThreeYearsSeasonalIncomeData, getOneYearSeasonalBookingCheckInData };
